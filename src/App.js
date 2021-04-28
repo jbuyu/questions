@@ -6,7 +6,7 @@ function App() {
 
   const [flashCards, setFlashCards] = useState(SAMPLE_FLASHCARDS)
   return (
-    <div className="main">
+    <div className="container">
       <FlashCardList flashCards={flashCards}/>
     </div>
   );

@@ -1,11 +1,18 @@
 body{
   background-color:#C8D0D2;
+  margin:0;
 }
 .card-grid{
   margin-top: 2em;
   padding: 2em;
 }
 
+.card-grid{
+  display:grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap:1rem;
+}
 
 .card{
   display: flex;
@@ -19,8 +26,6 @@ body{
   transition: 150ms;
   cursor: pointer;
   transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
-  height:150px;
-  width:150px;
 }
 
 .card:hover {
@@ -57,4 +62,8 @@ body{
 
 .flashcard-option:first-child{
   margin-top:0px;
+}
+.container {
+  max-width: 900px;
+  margin:1rem 2rem;
 }
