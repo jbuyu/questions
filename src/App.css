@@ -1,53 +1,60 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+body{
+  background-color:#C8D0D2;
 }
-.main{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  padding: 3em;
+.card-grid{
+  margin-top: 2em;
+  padding: 2em;
 }
-.poke{
-  margin:2em;
-}
-.singlePokemon{
-  margin:1em;
-}
-/* .input{
-  border:none;
-  border-radius:8px;
-  font-size:1rem;
-  height:2rem;
-  margin-left:0.5em;
-  margin-right:0.5em;
-  padding:0.6em;
 
-  
-} */
-button{
-  padding:0.6em;
-  margin-left:0.5em;
-  margin-right:0.5em;
-  background: #635bff;
-  color:white;
-  border-radius:8px;
+
+.card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: .25rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+  background-color: white;
+  transform-style: preserve-3d;
+  transition: 150ms;
   cursor: pointer;
-  border:none;
-  outline:none;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
+  height:150px;
+  width:150px;
+}
+
+.card:hover {
+  --translate-y:-2px;
+  box-shadow: 0 0 5px 2px rgba(0,0,0, .5)
+}
+
+.card .front {
+  left:0;
+}
+.card.flip{
+  --rotate-y: 180deg;
+}
+.card .front,
+.card .back{
+  position:absolute;
+  padding:1rem;
+  backface-visibility: hidden;
+}
+
+.card .back{
+  transform: rotateY(180deg)
+}
+/* flashcard */
+.flashcard-options {
+  margin-top: .5rem;
 
 }
-button:hover{
-  background:#0A2540;
+.flashcard-option{
+  margin-top: .25rem;
+  color: #555;
+  font-size: .75rem;
 }
-.poke-search{
-  display:flex;
-  flex:row;
-  justify-content:center;
-  align-items:center;
-}
-.search-box{
-  width:60px;
+
+.flashcard-option:first-child{
+  margin-top:0px;
 }
