@@ -1,24 +1,29 @@
 import React, { useState, useEffect, useRef } from "react";
 
-export default function FlashCard({ question, answer, options }) {
+export default function FlashCard({ question, answer, options, id }) {
   const [flip, setFlip] = useState(false);
-  const [height, setHeight] = useState('initial')
-  const frontEl = useRef()
-  const backEl = useRef()
+  const [height, setHeight] = useState("initial");
+  const frontEl = useRef();
+  const backEl = useRef();
 
-  function setMaxHeight(){
-    const frontHeight = frontEl.current.getBoundingClientRect().height
-    const backHeight = backEl.current.getBoundingClientRect().height
-    setHeight(Math.max(frontHeight, backHeight, 100))
+  function setMaxHeight() {
+    const frontHeight = frontEl.current.getBoundingClientRect().height;
+    const backHeight = backEl.current.getBoundingClientRect().height;
+    setHeight(Math.max(frontHeight, backHeight, 100));
   }
   useEffect(() => {
-   setMaxHeight()
-  }, [question, answer, options])
+    setMaxHeight();
+  }, [question, answer, options]);
+  useEffect(() => {
+    window.addEventListener('resize', setMaxHeight)
+    return ()=> window.removeEventListener('resize', setMaxHeight)
+   
+  }, [])
 
   return (
     <div
       className={`card ${flip ? "flip" : ""}`}
-      style={{height:height}}
+      style={{ height: height }}
       onClick={() => {
         setFlip(!flip);
       }}
@@ -26,13 +31,13 @@ export default function FlashCard({ question, answer, options }) {
       <div className="front" ref={frontEl}>
         {question}
         <div className="flashcard-options">
-          {options.map((option) => (
-            <div className="flashcard-option">{option}</div>
+          {options.map((option, index) => (
+            <div key={index} className="flashcard-option">{option}</div>
           ))}
         </div>
       </div>
       <div className="back" ref={backEl}>
-          {answer}
+        {answer}
       </div>
     </div>
   );

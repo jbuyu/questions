@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import FlashCard from "./FlashCard";
 import Axios from "axios";
-const BASE_URL = "";
+const BASE_URL = "https://opentdb.com/api.php?amount=10";
 
 export default function FlashCardList() {
   const [flashCards, setFlashCards] = useState([]);
 
   useEffect(() => {
-    Axios.get("https://opentdb.com/api.php?amount=10").then((res) => {
+    Axios.get(BASE_URL).then((res) => {
       setFlashCards(
         res.data.results.map((questionItem, index) => {
           const answer = decodeString(questionItem.correct_answer);
