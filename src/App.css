@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding: 3em;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.poke{
+  margin:2em;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.singlePokemon{
+  margin:1em;
 }
+.input{
+  border:none;
+  border-radius:8px;
+  font-size:1rem;
+  height:2rem;
+  margin-left:0.5em;
+  margin-right:0.5em;
+  padding:0.6em;
 
-.App-link {
-  color: #61dafb;
+  
 }
+button{
+  padding:0.6em;
+  margin-left:0.5em;
+  margin-right:0.5em;
+  background: #635bff;
+  color:white;
+  border-radius:8px;
+  cursor: pointer;
+  border:none;
+  outline:none;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+button:hover{
+  background:#0A2540;
+}
+.poke-search{
+  display:flex;
+  flex:row;
+  justify-content:center;
+  align-items:center;
 }
