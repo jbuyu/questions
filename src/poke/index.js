@@ -1,20 +1,29 @@
 import { useEffect, useState } from "react";
+import Select from 'react-select'
+
 import Axios from "axios";
 
 const BASE_URL = "https://pokeapi.co/api/v2/pokemon?limit=99";
 export const Pokemon = () => {
   const [pokemonData, setPokemonData] = useState([]);
-  const [pokeName, setPokeName] = useState('');
+  const [pokeName, setPokeName] = useState("");
+  const [loading, setLoading] = useState(false);
+  const fetchData = async () => {
+    setLoading(true);
+    let response = await Axios.get(BASE_URL);
+    if (response) {
+      setPokemonData(response.data.results);
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      let response = await Axios.get(BASE_URL);
-      if(response){
-
-          setPokemonData(response.data.results);
-      }
-    };
     fetchData();
   }, []);
+
+  const handleSubmit = (e) => {
+    const { value } = e.taget.value;
+    fetchData();
+  };
   return (
     <div className="poke">
       {/* {pokemonData ? (
@@ -26,10 +35,13 @@ export const Pokemon = () => {
       ) : (
         <>No Pokemons</>
       )} */}
-      <div className="poke-search" >
+      <div className="poke-search">
+        {/* <input className="input" placeholder="Search Poke" type="text" value={pokeName} onChange={e => setPokeName(e.target.value) }/> */}
+        <Select className="search-box" options={pokemonData} />
 
-      <input className="input" placeholder="Search Poke" type="text" value={pokeName} onChange={e => setPokeName(e.target.value) }/>
-      <button>Querry Poke</button>
+        <button onClick={handleSubmit}>
+          {loading ? "Searching..." : "Search"}
+        </button>
       </div>
     </div>
   );
