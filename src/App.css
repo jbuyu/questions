@@ -1,117 +1,124 @@
-body{
+body {
   /* background-color:#C8D0D2; */
-  margin:0;
+  margin: 0;
   background-color: #000000;
-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%23000000' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23180d1c' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%23261431' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%23351947' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%23451e5e' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23552277' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
-background-attachment: fixed;
-background-size: cover;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%23000000' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23180d1c' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%23261431' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%23351947' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%23451e5e' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23552277' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
 }
-.card-grid{
+.card-grid {
   margin-top: 2em;
   padding: 2em;
+  /* margin-left:8em; */
 }
 
-.card-grid{
-  display:grid;
+.card-grid {
+  display: grid;
   align-items: center;
+
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap:1rem;
+  gap: 1rem;
 }
 
-.card{
+.card {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  border-radius: .25rem;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
+  border-radius: 0.25rem;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
   background-color: white;
   transform-style: preserve-3d;
   transition: 150ms;
   cursor: pointer;
-  transform: perspective(1000px) rotateY(var(--rotate-y, 0)) translateY(var(--translate-y, 0));
-  background:#e5e5e5;
+  transform: perspective(1000px) rotateY(var(--rotate-y, 0))
+    translateY(var(--translate-y, 0));
+  background: #e5e5e5;
 }
 
 .card:hover {
-  --translate-y:-2px;
-  box-shadow: 0 0 5px 2px rgba(0,0,0, .5)
+  --translate-y: -2px;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.5);
 }
 
 .card .front {
-  left:0;
+  left: 0;
 }
-.card.flip{
+.card.flip {
   --rotate-y: 180deg;
 }
 .card .front,
-.card .back{
-  position:absolute;
-  padding:1rem;
+.card .back {
+  position: absolute;
+  padding: 1rem;
   backface-visibility: hidden;
 }
 
-.card .back{
-  transform: rotateY(180deg)
+.card .back {
+  transform: rotateY(180deg);
 }
 /* flashcard */
 .flashcard-options {
-  margin-top: .5rem;
-
+  margin-top: 0.5rem;
 }
-.flashcard-option{
-  margin-top: .25rem;
+.flashcard-option {
+  margin-top: 0.25rem;
   color: #555;
-  font-size: .75rem;
+  font-size: 0.75rem;
 }
 
-.flashcard-option:first-child{
-  margin-top:0px;
+.flashcard-option:first-child {
+  margin-top: 0px;
 }
 .container {
   max-width: 900px;
-  margin:1rem 2rem;
+  margin: 1rem 2rem;
 }
 .header {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-wrap:wrap;
-  background-color:white;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .3);
-  padding:0 1.5rem;
-  background:#e5e5e5;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: white;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.3);
+  padding: 0 1.5rem;
+  background: #e5e5e5;
 }
-.form-group{
-  margin:.5rem;
-  display:flex;
-  flex-direction:column;
+.form-group {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
-.btn-class{
-  margin-top:1em;
+.btn-class {
+  margin-top: 1em;
 }
-.form-group > label{
+.form-group > label {
   color: #777;
-  font-size: .75rem;
-  margin-bottom: .25rem;
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
 }
-.btn{
-  background-color:#635bff;
-  color:white;
-  border-radius:.3em;
-  padding: .5em 1em;
-  border:none;
-  outline:none;
-  cursor:pointer;
-  font-weight:bold;
+.btn {
+  background-color: #635bff;
+  color: white;
+  border-radius: 0.3em;
+  padding: 0.5em 1em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
 }
-.btn:hover{
-background-color:#0A2540
+.btn:hover {
+  background-color: #0a2540;
 }
-input, select{
-  border:red;
-  padding:0.5em;
-  font-size:15px;
+input,
+select {
+  border: red;
+  padding: 0.5em;
+  font-size: 15px;
   /* font-style:sans-serif; */
+}
+@media only screen and (min-width: 600px) {
+  .container {
+    margin-left: 24rem;
+  }
 }
